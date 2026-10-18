@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #800020;
+  border-radius: 3px;
+}
+
+/* ─── Base ──────────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a0a0a;
+  color: #fef0e4;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Accessibility — reduced motion ────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Glow text ─────────────────────────────────────────────── */
+.glow-text {
+  text-shadow:
+    0 0 10px rgba(183, 110, 121, 0.5),
+    0 0 20px rgba(183, 110, 121, 0.3),
+    0 0 40px rgba(183, 110, 121, 0.1);
+}
+
+/* ─── Rose-gold shimmer gradient text ───────────────────────── */
+.rose-gold-text {
+  background: linear-gradient(135deg, #b76e79, #d4a0a7, #e8c4c8, #b76e79);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ─── Glassmorphism card ────────────────────────────────────── */
+.glass {
+  background: rgba(128, 0, 32, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(183, 110, 121, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-hover {
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.glass-hover:hover {
+  background: rgba(128, 0, 32, 0.15);
+  border-color: rgba(183, 110, 121, 0.35);
+  box-shadow: 0 8px 32px rgba(183, 110, 121, 0.12);
+}
+
+/* ─── Glowing border animation ──────────────────────────────── */
+@keyframes borderGlow {
+  0%,
+  100% {
+    border-color: rgba(183, 110, 121, 0.15);
+  }
+  50% {
+    border-color: rgba(183, 110, 121, 0.4);
+  }
+}
+.glow-border {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* ─── Pulse glow for buttons ────────────────────────────────── */
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 15px rgba(183, 110, 121, 0.3),
+      0 0 30px rgba(128, 0, 32, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 25px rgba(183, 110, 121, 0.5),
+      0 0 50px rgba(128, 0, 32, 0.35);
+  }
+}
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* ─── Float animation ───────────────────────────────────────── */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ─── Section divider ───────────────────────────────────────── */
+.divider-line {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(183, 110, 121, 0.3),
+    transparent
+  );
+}
+
